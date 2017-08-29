@@ -68,6 +68,9 @@
  * Hide.................Helper classes to hide content
  */
 
+body {
+  font-family: Verdana,Geneva,sans-serif;
+}
 
 // SETTINGS
 @import "settings/settings.config";
@@ -113,6 +116,8 @@
 // Build and include your project’s UI Compoments here.
 @import "components/components.buttons";
 @import "components/components.modal";
+@import "components/components.input";
+@import "components/components.image";
 
 // UTILITIES
 @import "../node_modules/inuitcss/utilities/utilities.clearfix";

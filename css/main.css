@@ -66,6 +66,9 @@
  * Print................Reset-like styles taken from the HTML5 Boilerplate.
  * Hide.................Helper classes to hide content
  */
+body {
+  font-family: Verdana,Geneva,sans-serif; }
+
 /* ==========================================================================
    #BOX-SIZING
    ========================================================================== */
@@ -1414,35 +1417,32 @@ table {
   /* [5] */
   padding: 12px 24px;
   transition: all 300ms ease-in-out;
-  border-radius: 3px; }
+  border-radius: 3px;
+  border: 1px solid;
+  font-weight: 700;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset; }
 
 /* Style variants
    ========================================================================== */
 .c-btn--primary {
-  background-color: #4a8ec2; }
+  background-color: #ff851f;
+  border-color: #e56800;
+  color: #fff; }
   .c-btn--primary, .c-btn--primary:hover, .c-btn--primary:active, .c-btn--primary:focus {
     text-decoration: none;
-    /* [4] */
-    color: #fff; }
+    /* [4] */ }
   .c-btn--primary:hover, .c-btn--primary:focus {
-    background-color: #3774a2; }
+    background-color: #eb6b00; }
 
 .c-btn--secondary {
-  background-color: #2f4054; }
+  background-color: #87c569;
+  border-color: #66ae43;
+  color: #fff; }
   .c-btn--secondary, .c-btn--secondary:hover, .c-btn--secondary:active, .c-btn--secondary:focus {
-    text-decoration: none;
-    color: #fff; }
+    text-decoration: none; }
   .c-btn--secondary:hover, .c-btn--secondary:focus {
-    background-color: #1d2733; }
-
-.c-btn--tertiary {
-  background-color: #fff;
-  color: #4a8ec2; }
-  .c-btn--tertiary, .c-btn--tertiary:hover, .c-btn--tertiary:active, .c-btn--tertiary:focus {
-    text-decoration: none;
-    color: #4a8ec2; }
-  .c-btn--tertiary:hover, .c-btn--tertiary:focus {
-    color: #3774a2; }
+    background-color: #6ab546; }
 
 /* Size variants
    ========================================================================== */
@@ -1451,6 +1451,10 @@ table {
 
 .c-btn--large {
   padding: 24px 48px; }
+
+.c-btn--full {
+  width: 100%;
+  text-align: center; }
 
 /* Ghost buttons
    ========================================================================== */
@@ -1474,10 +1478,6 @@ table {
     color: #2f4054; }
     .c-btn--ghost.c-btn--secondary:hover, .c-btn--ghost.c-btn--secondary:focus {
       color: #1d2733; }
-  .c-btn--ghost.c-btn--tertiary {
-    color: #fff; }
-    .c-btn--ghost.c-btn--tertiary:hover, .c-btn--ghost.c-btn--tertiary:focus {
-      color: #fff; }
 
 /* ==========================================================================
    #MODAL
@@ -1487,7 +1487,47 @@ table {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 550px; }
+  width: 550px;
+  background: #fff;
+  border-radius: 3px; }
+
+/* ==========================================================================
+   #INPUT
+   ========================================================================== */
+.c-input {
+  border: 1px solid #ccc;
+  padding: .5rem;
+  font-weight: 400;
+  font-size: .875rem;
+  width: 100%; }
+
+.c-input::placeholder {
+  color: #d3d3d3; }
+
+select.c-input {
+  -webkit-appearance: none !important;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==) no-repeat #fafafa;
+  background-position-x: 97%;
+  background-position-y: center;
+  border: 1px solid #ccc;
+  padding: .5rem;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  height: 2.3125rem; }
+
+.c-input:focus {
+  -webkit-box-shadow: 0 0 5px #999;
+  -moz-box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #999;
+  background: #fafafa;
+  border-color: #999;
+  outline: 0; }
+
+/* ==========================================================================
+   #IMAGE
+   ========================================================================== */
+.c-image--feature {
+  width: 400px; }
 
 /* ==========================================================================
    #CLEARFIX

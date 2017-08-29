@@ -21,6 +21,10 @@
   padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
   transition: $global-transition;
   border-radius: $global-radius;
+  border: 1px solid;
+  font-weight: 700;
+  box-shadow: 0 1px 0 rgba(255,255,255,.25) inset;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25) inset;
 }
 
 
@@ -31,56 +35,39 @@
    ========================================================================== */
 
 .c-btn--primary {
-  background-color: #4a8ec2;
+  background-color: #ff851f;
+  border-color: #e56800;
+  color: #fff;
 
   &,
   &:hover,
   &:active,
   &:focus {
     text-decoration: none; /* [4] */
-    color: #fff;
   }
 
   &:hover,
   &:focus {
-    background-color: #3774a2;
+    background-color: #eb6b00;
   }
 
 }
 
 .c-btn--secondary {
-  background-color: #2f4054;
+  background-color: #87c569;
+  border-color: #66ae43;
+  color: #fff;
 
   &,
   &:hover,
   &:active,
   &:focus {
     text-decoration: none;
-    color: #fff;
   }
 
   &:hover,
   &:focus {
-    background-color: #1d2733;
-  }
-
-}
-
-.c-btn--tertiary {
-  background-color: #fff;
-  color: #4a8ec2;
-
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-    color: #4a8ec2;
-  }
-
-  &:hover,
-  &:focus {
-    color: #3774a2;
+    background-color: #6ab546;
   }
 
 }
@@ -100,7 +87,10 @@
   padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
 }
 
-
+.c-btn--full {
+  width: 100%;
+  text-align: center;
+}
 
 
 
@@ -148,16 +138,6 @@ $btn-ghost-border-width: 2px;
     &:hover,
     &:focus {
       color: #1d2733;
-    }
-
-  }
-
-  &.c-btn--tertiary {
-    color: #fff;
-
-    &:hover,
-    &:focus {
-      color: #fff;
     }
 
   }
