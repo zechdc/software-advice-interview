@@ -23,6 +23,7 @@
     <button class="js-btn-get-quote c-btn c-btn--primary">Get Price Quote</button>
 
     <div class="js-modal o-box c-modal u-hidden">
+      <div class="js-modal-close c-modal__close">×</div>
       <form class="js-form o-layout">
 
         <div class="o-layout__item u-2/4">
@@ -143,6 +144,9 @@
         $('.js-image-placeholder').html("<img class='c-image c-image--feature' src=\"img/priceQuote"+variation+".png\"/>");
       }
 
+      $('body').on('click', '.js-modal-close', function(){
+        $('.js-modal').addClass('u-hidden');
+      });
 
       $('body').on('keyup', '#name', function(){
         //Requirement: Log field value as user types
