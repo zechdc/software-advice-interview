@@ -33,6 +33,7 @@
             </li>
             <li class="o-list-bare__item u-padding-top-small">
               <input class="c-input" type="text" id="email" placeholder="Email">
+              <div class="js-error u-hidden c-input__error">Invalid Email</div>
             </li>
             <li class="o-list-bare__item u-padding-top-small">
               <input class="c-input" type="text" id="phone" placeholder="Phone">
@@ -116,8 +117,6 @@
             <input type="submit" class="js-btn-submit c-btn c-btn--secondary c-btn--small c-btn--full">
           </div>
 
-          <ul class="js-errors"></ul>
-
         </div>
       </form>
     </div>
@@ -193,11 +192,15 @@
       //when input is blurred, validate and display error
       $('body').on('blur', '#email', function(){
         if( ! validateEmail($(this).val())){
-          $('.js-errors').html('<li>Invalid Email Address</li>');
+          $(this).next().removeClass('u-hidden');
         } else {
-          $('.js-errors').html('');
+          $(this).next().addClass('u-hidden');
         }
       });
+
+      function displayError(){
+
+      }
 
       $('body').on('click', '.js-btn-submit', function(){
         event.preventDefault();
