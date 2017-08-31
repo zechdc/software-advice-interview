@@ -142,6 +142,41 @@
 
       loadVariation();
 
+      class Modal {
+
+        constructor(options) {
+          options = (typeof options !== 'undefined') ? options : {};
+          console.log(options);
+          this.modalSelector = (typeof options.modalSelector !== 'undefined') ? options.modalSelector : 'js-modal';
+          this.closeSelector = (typeof options.closeSelector !== 'undefined') ? options.closeSelector : 'js-modal-close';
+          this.modal = document.getElementsByClassName(this.modalSelector);
+//          this.closeBtn = document.getElementsByClassName(this.closeSelector);
+
+          console.log(this.modal);
+//          console.log(closeBtn);
+
+          this.registerEvents();
+        }
+
+        registerEvents() {
+          this.modal.addEventListener('click', function(e){
+            console.log(e);
+//            this.modal.classList.add('u-hidden');
+          });
+        }
+
+        open() {
+          this.modal.classList.remove('u-hidden');
+        }
+
+        close(){
+          this.modal.classList.add('u-hidden');
+        }
+
+      }
+
+      let modal = new Modal();
+
       //when input is blurred, validate and display error
       $('#email').on('blur', function(){
         if( ! validateEmail($(this).val())){
@@ -165,10 +200,6 @@
         console.log(form);
       });
 
-      $('.js-modal').on('click', '.js-modal-close', function(){
-        $('.js-modal').addClass('u-hidden');
-      });
-
       $('#name').on('keyup', function(){
         //Requirement: Log field value as user types
         console.log($(this).val());
@@ -179,6 +210,8 @@
 
         //Requirement: log to console the session_id
         console.log(session);
+
+        modal.open();
 
         $('.js-modal').removeClass('u-hidden');
       });
@@ -218,6 +251,7 @@
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
       }
+
 
 
     </script>
