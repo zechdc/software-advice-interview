@@ -138,6 +138,9 @@
 
       loadVariation();
 
+      /**
+       * Simple class that allows us to open and close a popup.
+       */
       class Modal {
 
         constructor(modalId, options) {
@@ -149,21 +152,47 @@
         }
 
         registerEvents() {
+          let _self = this;
           this.$modal.on('click', '.'+this.closeSelector, function(){
-            console.log(this);
-            this.$modal.addClass('u-hidden');
+            _self.close();
           });
         }
 
         open() {
-          console.log('here');
-          console.log(this);
           this.$modal.removeClass('u-hidden');
         }
 
         close(){
           this.$modal.addClass('u-hidden');
         }
+
+      }
+
+      /**
+       * Form
+       * Helps us easily collect all form fields into an JSON object
+       */
+      class Form {
+        constructor() {
+
+        }
+      }
+
+      /**
+       * Validation
+       * Helps us monitor form fields and check their contents
+       */
+      class Validation {
+        constructor() {
+
+        }
+      }
+
+      /**
+       * Store
+       * helps us store and retrieve data from localStorage/Cookies
+       */
+      class Store {
 
       }
 
@@ -204,8 +233,6 @@
         console.log(session);
 
         modal.open();
-
-        $('.js-modal').removeClass('u-hidden');
       });
 
 
