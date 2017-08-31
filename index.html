@@ -174,7 +174,7 @@
         var session = getSession();
 
         //Requirement: log to console the session_id
-        console.log(session.session_id);
+        console.log(session);
 
         $('.js-modal').removeClass('u-hidden');
       });
@@ -200,14 +200,11 @@
       }
 
       function getSession(){
-        var session = localStorage.getItem('session');
-        if(session == null){
-          session = {
-            "session_id": new Date().getTime(),
-            'variation': getVariation()
-          }
+        var session = localStorage.getItem('session_id');
 
-          localStorage.setItem('session_id', JSON.stringify(session));
+        if(session == null){
+          session = new Date().getTime();
+          localStorage.setItem('session_id', session);
         }
 
         return session;
