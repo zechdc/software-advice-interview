@@ -136,10 +136,14 @@
 
     <script>
 
+      //After looking at what code is being used, I should be able to restructure
+      // this app to not need jQuery and use the native DOM API instead. I used jQuery because I am more familiar and
+      // wanted to get it done quickly.
+
       loadVariation();
 
       //when input is blurred, validate and display error
-      $('body').on('blur', '#email', function(){
+      $('#email').on('blur', function(){
         if( ! validateEmail($(this).val())){
           $(this).next().removeClass('u-hidden');
         } else {
@@ -147,10 +151,10 @@
         }
       });
 
-      $('body').on('click', '.js-btn-submit', function(){
+      $('.js-modal').on('click', '.js-btn-submit', function(){
         event.preventDefault();
         var form = {
-          'variation': (getSession()).variation
+          'variation': getVariation()
         };
 
         $(".js-form :input[type=text], .js-form select").each(function(){
@@ -161,16 +165,16 @@
         console.log(form);
       });
 
-      $('body').on('click', '.js-modal-close', function(){
+      $('.js-modal').on('click', '.js-modal-close', function(){
         $('.js-modal').addClass('u-hidden');
       });
 
-      $('body').on('keyup', '#name', function(){
+      $('#name').on('keyup', function(){
         //Requirement: Log field value as user types
         console.log($(this).val());
       });
 
-      $('body').on('click', '.js-btn-get-quote', function(){
+      $('.js-btn-get-quote').on('click', function(){
         var session = getSession();
 
         //Requirement: log to console the session_id
