@@ -58,7 +58,7 @@
             <li class="o-list-bare__item u-padding-top-small">
               <div class="o-layout">
                 <div class="o-layout__item u-1/2">
-                  <select id="state" class="c-input" placeholder>
+                  <select id="state" class="c-input">
                     <option value="" disabled selected>Select State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -138,10 +138,28 @@
 
       loadVariation();
 
-      function loadVariation(){
-        var variation = getVariation();
-        $('.js-image-placeholder').html("<img class='c-image c-image--feature' src=\"img/priceQuote"+variation+".png\"/>");
-      }
+      //when input is blurred, validate and display error
+      $('body').on('blur', '#email', function(){
+        if( ! validateEmail($(this).val())){
+          $(this).next().removeClass('u-hidden');
+        } else {
+          $(this).next().addClass('u-hidden');
+        }
+      });
+
+      $('body').on('click', '.js-btn-submit', function(){
+        event.preventDefault();
+        var form = {
+          'variation': (getSession()).variation
+        };
+
+        $(".js-form :input[type=text], .js-form select").each(function(){
+          form[$(this).attr('id')] = $(this).val();
+        });
+
+        //Requirement: Log Form
+        console.log(form);
+      });
 
       $('body').on('click', '.js-modal-close', function(){
         $('.js-modal').addClass('u-hidden');
@@ -160,6 +178,12 @@
 
         $('.js-modal').removeClass('u-hidden');
       });
+
+
+      function loadVariation(){
+        var variation = getVariation();
+        $('.js-image-placeholder').html("<img class='c-image c-image--feature' src=\"img/priceQuote"+variation+".png\"/>");
+      }
 
       function getVariation(){
         var variation = localStorage.getItem('variation');
@@ -188,29 +212,6 @@
 
         return session;
       }
-
-      //when input is blurred, validate and display error
-      $('body').on('blur', '#email', function(){
-        if( ! validateEmail($(this).val())){
-          $(this).next().removeClass('u-hidden');
-        } else {
-          $(this).next().addClass('u-hidden');
-        }
-      });
-
-      $('body').on('click', '.js-btn-submit', function(){
-        event.preventDefault();
-        var form = {
-          'variation': (getSession()).variation
-        };
-
-        $(".js-form :input[type=text], .js-form select").each(function(){
-          form[$(this).attr('id')] = $(this).val();
-        });
-
-        //Requirement: Log Form
-        console.log(form);
-      });
 
       function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
