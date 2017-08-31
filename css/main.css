@@ -1484,14 +1484,17 @@ table {
    ========================================================================== */
 .c-modal {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 550px;
+  top: 0;
   background: #fff;
   border-radius: 3px;
   border: 1px solid #cccccc;
   box-shadow: 0 0 1em black; }
+  @media (min-width: 46.25em) {
+    .c-modal {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 550px; } }
 
 .c-modal__close {
   position: absolute;
@@ -3410,5 +3413,15 @@ select.c-input {
  */
 .u-hidden {
   display: none !important; }
+
+/* ==========================================================================
+   #HIDE
+   ========================================================================== */
+@media (min-width: 20em) and (max-width: 46.24em) {
+  .u-hidden\@mobile-to-tablet {
+    display: none !important; } }
+@media (min-width: 46.25em) {
+  .u-hidden\@tablet {
+    display: none !important; } }
 
 /*# sourceMappingURL=main.css.map */

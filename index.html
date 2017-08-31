@@ -20,13 +20,24 @@
       your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <button class="js-btn-get-quote c-btn c-btn--primary">Get Price Quote</button>
+    <div class="o-wrapper">
+      <button class="js-btn-get-quote c-btn c-btn--primary">Get Price Quote</button>
+    </div>
 
     <div class="js-modal o-box c-modal u-hidden">
       <div class="js-modal-close c-modal__close">×</div>
-      <form class="js-form o-layout">
+      <form class="js-form o-layout o-layout--reverse">
 
-        <div class="o-layout__item u-2/4">
+        <div class="o-layout__item u-2/4@tablet u-1/1@mobile">
+          <div class="js-image-placeholder"></div>
+
+          <div class="u-padding-top">
+            <input type="submit" class="js-btn-submit c-btn c-btn--secondary c-btn--small c-btn--full u-hidden@mobile-to-tablet">
+          </div>
+
+        </div>
+
+        <div class="o-layout__item u-2/4@tablet u-1/1@mobile">
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
               <input class="c-input" type="text" id="name" placeholder="Name">
@@ -106,26 +117,15 @@
                   <input class="c-input" type="text" id="zip" placeholder="Zip Code">
                 </div>
               </div>
+
+              <div class="u-padding-top">
+                <input type="submit" class="js-btn-submit c-btn c-btn--secondary c-btn--small c-btn--full u-hidden@tablet">
+              </div>
+
             </li>
           </ul>
         </div>
-
-        <div class="o-layout__item u-2/4">
-          <div class="js-image-placeholder"></div>
-
-          <div style="text-align: center" class="u-padding-top">
-            <input type="submit" class="js-btn-submit c-btn c-btn--secondary c-btn--small c-btn--full">
-          </div>
-
-        </div>
       </form>
-    </div>
-
-
-    <div class="o-wrapper">
-
-
-
     </div>
 
 
