@@ -24,7 +24,7 @@
       <button class="js-btn-get-quote c-btn c-btn--primary">Get Price Quote</button>
     </div>
 
-    <div class="js-modal o-box c-modal u-hidden">
+    <div id="modal" class="js-modal o-box c-modal u-hidden">
       <div class="js-modal-close c-modal__close">×</div>
       <form class="js-form o-layout o-layout--reverse">
 
@@ -136,46 +136,38 @@
 
     <script>
 
-      //After looking at what code is being used, I should be able to restructure
-      // this app to not need jQuery and use the native DOM API instead. I used jQuery because I am more familiar and
-      // wanted to get it done quickly.
-
       loadVariation();
 
       class Modal {
 
-        constructor(options) {
+        constructor(modalId, options) {
           options = (typeof options !== 'undefined') ? options : {};
-          console.log(options);
-          this.modalSelector = (typeof options.modalSelector !== 'undefined') ? options.modalSelector : 'js-modal';
           this.closeSelector = (typeof options.closeSelector !== 'undefined') ? options.closeSelector : 'js-modal-close';
-          this.modal = document.getElementsByClassName(this.modalSelector);
-//          this.closeBtn = document.getElementsByClassName(this.closeSelector);
-
-          console.log(this.modal);
-//          console.log(closeBtn);
+          this.$modal = $('#' + modalId);
 
           this.registerEvents();
         }
 
         registerEvents() {
-          this.modal.addEventListener('click', function(e){
-            console.log(e);
-//            this.modal.classList.add('u-hidden');
+          this.$modal.on('click', '.'+this.closeSelector, function(){
+            console.log(this);
+            this.$modal.addClass('u-hidden');
           });
         }
 
         open() {
-          this.modal.classList.remove('u-hidden');
+          console.log('here');
+          console.log(this);
+          this.$modal.removeClass('u-hidden');
         }
 
         close(){
-          this.modal.classList.add('u-hidden');
+          this.$modal.addClass('u-hidden');
         }
 
       }
 
-      let modal = new Modal();
+      let modal = new Modal('modal');
 
       //when input is blurred, validate and display error
       $('#email').on('blur', function(){
